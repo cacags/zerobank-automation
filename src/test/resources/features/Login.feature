@@ -1,4 +1,3 @@
-@wip
 Feature: Login
 
   Scenario: Only authorized users should login
