@@ -4,7 +4,6 @@ Feature: Purchase Foreign Currency
     Given the user is logged in
     Then the user click the "Pay Bills" tab
 
-  @wip
   Scenario: Available currencies
     Given "Purchase Foreign Currency" tab
     Then following currencies should be available
