@@ -4,6 +4,7 @@ Feature: Account Activity
     Given the user is logged in
     Then the user accesses the "Account Activity" tab
     Then the page should have the title "Zero - Account Activity"
+    Then Account drop down should have "Savings" selected
     Then the account dropdown should see the following options
       | Savings     |
       | Checking    |
