@@ -1,5 +1,5 @@
 Feature: Account Activity
-  @wip
+
   Scenario: Account activity page title and dropdown box
     Given the user is logged in
     Then the user accesses the "Account Activity" tab

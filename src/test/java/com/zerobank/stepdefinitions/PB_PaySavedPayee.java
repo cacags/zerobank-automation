@@ -50,14 +50,12 @@ public class PB_PaySavedPayee {
     public void message_in_amount_box_should_pop_up(String expectedErrorMessage) {
         String actualErrorMessage = new PB_PaySavedPayeePage().getAmountErrorMessage();
         Assert.assertEquals(expectedErrorMessage, actualErrorMessage);
-        System.out.println(actualErrorMessage);
     }
 
     @Then("{string} in date box message should pop-up")
     public void in_date_box_message_should_pop_up(String expectedErrorMessage) {
         String actualErrorMessage = new PB_PaySavedPayeePage().getDateErrorMessage();
         Assert.assertEquals(expectedErrorMessage, actualErrorMessage);
-        System.out.println(actualErrorMessage);
     }
 
     @Then("in data field there should't be any alphabetical characters")
