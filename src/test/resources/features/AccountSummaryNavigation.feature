@@ -28,5 +28,20 @@ Feature: Navigating to specific accounts in Accounts Activity
     Then the "Account Activity" page should be displayed
     And Account drop down should have "Loan" selected
 
+  #Data driven test is implemented. Added on 25th October 2020.
+  #Instead of the above scenarios the following DDT scenario can be used.
+  @wip
+  Scenario Outline: "<accountTypes>" account redirect
+    When the user clicks on "<accountTypes>" link on the Account Summary page
+    Then the "Account Activity" page should be displayed
+    And Account drop down should have "<accountTypes>" selected
+    Examples:
+
+      | accountTypes |
+      | Savings      |
+      | Brokerage    |
+      | Checking     |
+      | Credit Card  |
+      | Loan         |
 
 

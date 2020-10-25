@@ -13,7 +13,7 @@ Feature: Pay Bills
     Then user enters "Car Repair" as a description
     When the user enter the pay button
     Then the user should see "The payment was successfully submitted." message
-  @wip
+
   Scenario: Unsuccessful payment without amount
     Then the user choose "Bank of America" as a Payee from dropdown options
     Then the user choose "Loan" as an Account from dropdown options
