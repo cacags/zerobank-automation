@@ -1,6 +1,7 @@
 package com.zerobank.pages;
 
 import com.zerobank.utilities.Driver;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -30,6 +31,9 @@ public class PB_PurchaseForeignCurrencyPage {
     @FindBy(xpath = "//input[@type='submit'][contains(@id,'cash')]")
     public WebElement purchaseButton;
 
+    @FindBy(xpath = "//h2[contains(.,'Purchase foreign currency cash')]")
+    public WebElement pageTitle;
+
     @FindBy(xpath = "//select[contains(@name,'currency')]")
     public WebElement currencyDropdown;
 
@@ -45,8 +49,18 @@ public class PB_PurchaseForeignCurrencyPage {
         return optionText;
     }
 
+    public void selectCurrency(String currency){
+        Select select = new Select(currencyDropdown);
+        select.selectByVisibleText(currency);
+    }
+
     public void enterAmount(String expectedAmount){
         amount.sendKeys(expectedAmount);
+    }
+
+    public String getAlertErrorMessage(){
+        Alert alert = Driver.get().switchTo().alert();
+        return alert.getText();
     }
 
 
