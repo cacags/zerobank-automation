@@ -37,7 +37,11 @@ public class PB_PurchaseForeignCurrencyPage {
         List<String> optionText = new ArrayList<>();
         Select select = new Select(currencyDropdown);
         List<WebElement> options = select.getOptions();
-        options.forEach(element -> optionText.add(element.getText()));
+        options.forEach(element -> {
+                if(!element.getText().equals("Select One"))
+                    optionText.add(element.getText());
+            }
+        );
         return optionText;
     }
 

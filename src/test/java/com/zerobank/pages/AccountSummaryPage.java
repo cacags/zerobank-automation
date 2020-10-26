@@ -25,7 +25,7 @@ public class AccountSummaryPage {
     public WebElement creditAccounts;
 
     @FindBy(xpath = "//h2[contains(.,'Credit Accounts')]/following-sibling::div[1]//th")
-    public WebElement creditAccountsTableHeader;
+    public List<WebElement> creditAccountsTableHeader;
 
     @FindBy(xpath = "//h2[contains(.,'Loan Accounts')]")
     public WebElement loanAccounts;
@@ -55,7 +55,6 @@ public class AccountSummaryPage {
         List<WebElement> tableHeader = Driver.get().findElements(header);
         tableHeader.forEach(table -> headerOptions.add(table.getText()));
         return headerOptions;
-
     }
 
 

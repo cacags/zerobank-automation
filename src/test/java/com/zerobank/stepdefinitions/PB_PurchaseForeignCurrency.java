@@ -16,8 +16,6 @@ public class PB_PurchaseForeignCurrency {
     public void following_currencies_should_be_available(List<String> expectedCurrency) {
         BrowserUtils.waitFor(3);
         List<String > actualCurrency = pb_purchaseForeignCurrencyPage.getCurrencyOptions();
-        System.out.println(expectedCurrency);
-        System.out.println(actualCurrency);
         Assert.assertEquals(expectedCurrency,actualCurrency);
     }
 }
