@@ -34,6 +34,22 @@ Feature: Find Transactions in Account Activity
     And clicks search
     Then results table should only show descriptions containing "ONLINE"
 
+  @wip
+  Scenario: Type
+    Given the user accesses the "Find Transactions" tab
+    And clicks search
+    Then results table should show at least one result under Deposit
+    Then results table should show at least one result under Withdrawal
+    When user selects type "Deposit"
+    And clicks search
+    Then results table should show at least one result under Deposit
+    But results table should show no result under Withdrawal
+    When user selects type "Withdrawal"
+    And clicks search
+    Then results table should show at least one result under Withdrawal
+    But results table should show no result under Deposit
+
+
 
 
 

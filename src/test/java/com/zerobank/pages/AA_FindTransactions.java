@@ -30,7 +30,7 @@ public class AA_FindTransactions {
     @FindBy(id = "aa_toAmount")
     public WebElement toAmount;
 
-    @FindBy(id = "#aa_type")
+    @FindBy(xpath = "//select[contains(@name,'type')]")
     public WebElement typeSelect;
 
     @FindBy(xpath = "//button[@type='submit']")
@@ -44,6 +44,12 @@ public class AA_FindTransactions {
 
     @FindBy(xpath = "//div[@id='filtered_transactions_for_account']//tbody//tr//td[2]")
     public List<WebElement> description;
+
+    @FindBy(xpath = "//div[@id='filtered_transactions_for_account']//tbody//tr//td[3]")
+    public List<WebElement> depositElements;
+
+    @FindBy(xpath = "//div[@id='filtered_transactions_for_account']//tbody//tr//td[4]")
+    public List<WebElement> withdrawalElements;
 
     public void selectType(String typeValue){
         new Select(typeSelect).selectByVisibleText(typeValue);
@@ -85,5 +91,27 @@ public class AA_FindTransactions {
 
     public String getMostRecentDate(){
         return dates.get(0).getText();
+    }
+
+    public boolean isDepositContainsData(){
+        boolean dummy = false;
+        for (WebElement depositElement : depositElements) {
+            if(!depositElement.getText().equals("")){
+                dummy = true;
+                break;
+            }
+        }
+        return dummy;
+    }
+
+    public boolean isWithdrawalContainsData(){
+        boolean dummy = false;
+        for (WebElement withdrawalElement : withdrawalElements) {
+            if(!withdrawalElement.getText().equals("")){
+                dummy = true;
+                break;
+            }
+        }
+        return dummy;
     }
 }

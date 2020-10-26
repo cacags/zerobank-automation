@@ -31,7 +31,7 @@ Feature: Purchase Foreign Currency
       | errorMessage                                                                   |
       | Please, ensure that you have filled all the required fields with valid values. |
 
-  @wip
+
   Scenario Outline: Error message for not entering value
     Given "Purchase Foreign Currency" tab
     When user tries to calculate cost without entering a value
