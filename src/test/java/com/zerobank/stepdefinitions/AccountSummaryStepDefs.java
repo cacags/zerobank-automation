@@ -8,7 +8,7 @@ import org.junit.Assert;
 
 import java.util.List;
 
-public class AccountSummary {
+public class AccountSummaryStepDefs {
 
     @Then("the page should have the title {string}")
     public void the_page_should_have_the_title(String title) {

@@ -9,7 +9,7 @@ import org.junit.Assert;
 
 import java.util.List;
 
-public class PB_PurchaseForeignCurrency {
+public class PB_PurchaseForeignCurrencyStepDefs {
 
     PB_PurchaseForeignCurrencyPage pb_purchaseForeignCurrencyPage
             = new PB_PurchaseForeignCurrencyPage();

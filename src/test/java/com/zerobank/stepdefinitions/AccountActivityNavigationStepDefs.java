@@ -9,7 +9,7 @@ import com.zerobank.utilities.Driver;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
 
-public class AccountActivityNavigation {
+public class AccountActivityNavigationStepDefs {
 
     @Given("the user is logged in")
     public void the_user_is_logged_in() {

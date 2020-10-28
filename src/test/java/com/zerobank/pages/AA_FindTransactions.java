@@ -1,6 +1,9 @@
 package com.zerobank.pages;
 
+import com.zerobank.utilities.BrowserUtils;
 import com.zerobank.utilities.Driver;
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -9,8 +12,10 @@ import org.openqa.selenium.support.ui.Select;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class AA_FindTransactions {
+
     public AA_FindTransactions(){
         PageFactory.initElements(Driver.get(), this);
     }
@@ -80,14 +85,25 @@ public class AA_FindTransactions {
         return false;
     }
 
-    public boolean isContainDescription(String value){
-        for (WebElement element : description) {
-            if(!element.getText().contains(value)){
-                return false;
+    public void isDescriptionContain(String value){
+
+        List<String> listOfDescriptions = BrowserUtils.getElementsText(description);
+
+        if(description.get(0).isDisplayed()){
+            //listOfDescriptions.forEach(text->Assert.assertTrue(text.contains(value)));
+            for (String textOfDescription : listOfDescriptions) {
+                Assert.assertTrue(textOfDescription.contains(value));
             }
+        }else{
+            throw new NoSuchElementException();
         }
-        return true;
+
     }
+
+    //public void isDescriptionNotContain(String value){
+      //  List<String> listOfDescriptons = BrowserUtils.getElementsText(new_description);
+       // Assert.assertFalse(listOfDescriptons.contains(value));
+    //}
 
     public String getMostRecentDate(){
         return dates.get(0).getText();

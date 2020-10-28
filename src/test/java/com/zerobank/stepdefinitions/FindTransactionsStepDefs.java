@@ -10,7 +10,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
-public class FindTransactions {
+public class FindTransactionsStepDefs {
     AA_FindTransactions aa_findTransactions = new AA_FindTransactions();
     @Then("the user click the {string} tab")
     public void theUserClickTheTab(String moduleName) {
@@ -67,27 +67,27 @@ public class FindTransactions {
     @Then("results table should only show descriptions containing {string}")
     public void results_table_should_only_show_descriptions_containing(String value) {
         BrowserUtils.waitFor(3);
-        Assert.assertTrue(new AA_FindTransactions().isContainDescription(value));
+        new AA_FindTransactions().isDescriptionContain(value);
     }
 
     @Then("results table should not show descriptions containing {string}")
     public void results_table_should_not_show_descriptions_containing(String value) {
         BrowserUtils.waitFor(3);
-        Assert.assertFalse(new AA_FindTransactions().isContainDescription(value));
+        //new AA_FindTransactions().isDescriptionNotContain(value);
     }
 
     @Then("results table should show at least one result under Deposit")
     public void results_table_should_show_at_least_one_result_under_Deposit() {
         BrowserUtils.waitFor(2);
         Assert.assertTrue(aa_findTransactions.isDepositContainsData());
-        System.out.println(aa_findTransactions.isDepositContainsData());
+        //System.out.println(aa_findTransactions.isDepositContainsData());
     }
 
     @Then("results table should show at least one result under Withdrawal")
     public void results_table_should_show_at_least_one_result_under_Withdrawal() {
         BrowserUtils.waitFor(2);
         Assert.assertTrue(aa_findTransactions.isWithdrawalContainsData());
-        System.out.println(aa_findTransactions.isWithdrawalContainsData());
+        //System.out.println(aa_findTransactions.isWithdrawalContainsData());
     }
 
     @When("user selects type {string}")
@@ -99,13 +99,13 @@ public class FindTransactions {
     @Then("results table should show no result under Withdrawal")
     public void results_table_should_show_no_result_under_Withdrawal() {
         Assert.assertFalse(aa_findTransactions.isWithdrawalContainsData());
-        System.out.println(aa_findTransactions.isWithdrawalContainsData());
+        //System.out.println(aa_findTransactions.isWithdrawalContainsData());
     }
 
     @Then("results table should show no result under Deposit")
     public void results_table_should_show_no_result_under_Deposit() {
         Assert.assertFalse(aa_findTransactions.isDepositContainsData());
-        System.out.println(aa_findTransactions.isDepositContainsData());
+        //System.out.println(aa_findTransactions.isDepositContainsData());
     }
 
 

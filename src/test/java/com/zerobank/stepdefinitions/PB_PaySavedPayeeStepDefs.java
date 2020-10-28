@@ -6,7 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
-public class PB_PaySavedPayee {
+public class PB_PaySavedPayeeStepDefs {
 
     @Then("the user choose {string} as a Payee from dropdown options")
     public void the_user_choose_as_a_Payee_from_dropdown_options(String payeeOption) {

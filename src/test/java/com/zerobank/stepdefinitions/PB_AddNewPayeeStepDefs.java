@@ -9,7 +9,7 @@ import org.junit.Assert;
 
 import java.util.Map;
 
-public class PB_AddNewPayee {
+public class PB_AddNewPayeeStepDefs {
 
     PB_AddNewPayeePage pb_addNewPayeePage = new PB_AddNewPayeePage();
 

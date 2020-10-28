@@ -6,7 +6,7 @@ import org.junit.Assert;
 
 import java.util.List;
 
-public class AccountActivity {
+public class AccountActivityStepDefs {
 
     @Then("the account dropdown should see the following options")
     public void the_account_dropdown_should_see_the_following_options(List<String> expectedDropdownOptions) {
