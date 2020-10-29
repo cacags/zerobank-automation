@@ -10,6 +10,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
+import java.text.ParseException;
+
 public class FindTransactionsStepDefs {
     AA_FindTransactions aa_findTransactions = new AA_FindTransactions();
     @Then("the user click the {string} tab")
@@ -41,16 +43,13 @@ public class FindTransactionsStepDefs {
     @Then("results table should only show	transactions dates between {string}	to {string}")
     public void resultsTableShouldOnlyShowTransactionsDatesBetweenTo(String fDate, String tDate) throws Exception {
         BrowserUtils.waitFor(5);
-        Assert.assertFalse(aa_findTransactions.isFirst(tDate));
-        Assert.assertFalse(aa_findTransactions.isLast(fDate));
+        aa_findTransactions.isBetweenTheDates(fDate, tDate);
 
     }
 
     @And("the	results	should be sorted by	most recent date")
-    public void theResultsShouldBeSortedByMostRecentDate() {
-        String expectedDate = aa_findTransactions.toDate.getAttribute("value");
-        String actualDate = aa_findTransactions.getMostRecentDate();
-        Assert.assertEquals(expectedDate,actualDate);
+    public void theResultsShouldBeSortedByMostRecentDate() throws ParseException {
+        aa_findTransactions.isSortedByMostRecentDate();
     }
 
     @And("the	results	table should only not contain transactions dated {string}")
@@ -66,13 +65,13 @@ public class FindTransactionsStepDefs {
 
     @Then("results table should only show descriptions containing {string}")
     public void results_table_should_only_show_descriptions_containing(String value) {
-        BrowserUtils.waitFor(3);
+        BrowserUtils.waitFor(2);
         new AA_FindTransactions().isDescriptionContain(value);
     }
 
     @Then("results table should not show descriptions containing {string}")
     public void results_table_should_not_show_descriptions_containing(String value) {
-        BrowserUtils.waitFor(5);
+        BrowserUtils.waitFor(2);
         new AA_FindTransactions().isDescriptionNotContain(value);
     }
 

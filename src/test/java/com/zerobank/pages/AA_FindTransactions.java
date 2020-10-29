@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -59,20 +60,19 @@ public class AA_FindTransactions {
         new Select(typeSelect).selectByVisibleText(typeValue);
     }
 
-    public int getRowNumberOfTable(){
-        return table.size();
-    }
+    public void isBetweenTheDates(String fromDate, String toDate) throws ParseException {
+        List<String> theDateList = BrowserUtils.getElementsText(dates);
+        Date expectedFromDate = new SimpleDateFormat("yyyy-MM-dd").parse(fromDate);
+        Date expectedToDate = new SimpleDateFormat("yyyy-MM-dd").parse(toDate);
+        for (String textOfDates : theDateList) {
+            Date actualDate = new SimpleDateFormat("yyyy-MM-dd").parse(textOfDates);
+            System.out.println(actualDate);
+            boolean date_1 = actualDate.compareTo(expectedToDate)==0 || actualDate.compareTo(expectedToDate)<0;
+            boolean date_2 = actualDate.compareTo(expectedFromDate)==0 || actualDate.compareTo(expectedFromDate)>0;
+            Assert.assertTrue(date_1);
+            Assert.assertTrue(date_2);
+        }
 
-    public boolean isLast(String fromDate) throws Exception{
-        Date expectedDate = new SimpleDateFormat("yyyy-MM-dd").parse(fromDate);
-        Date actualDate = new SimpleDateFormat("yyyy-MM-dd").parse(dates.get(getRowNumberOfTable()-1).getText());
-        return actualDate.before(expectedDate);
-    }
-
-    public boolean isFirst(String toDate) throws Exception{
-        Date expectedDate = new SimpleDateFormat("yyyy-MM-dd").parse(toDate);
-        Date actualDate = new SimpleDateFormat("yyyy-MM-dd").parse(dates.get(0).getText());
-        return actualDate.after(expectedDate);
     }
 
     public boolean isContain(String date){
@@ -107,8 +107,14 @@ public class AA_FindTransactions {
         }
     }
 
-    public String getMostRecentDate(){
-        return dates.get(0).getText();
+    public void isSortedByMostRecentDate() throws ParseException {
+        List<String> theDateList = BrowserUtils.getElementsText(dates);
+        for (int i = 0; i < theDateList.size()-1; i++) {
+            Date actualDate_1 = new SimpleDateFormat("yyyy-MM-dd").parse(theDateList.get(i));
+            Date actualDate_2 = new SimpleDateFormat("yyyy-MM-dd").parse(theDateList.get(i+1));
+            boolean check = actualDate_1.compareTo(actualDate_2)==0 || actualDate_1.compareTo(actualDate_2)>0;
+            Assert.assertTrue(check);
+        }
     }
 
     public boolean isDepositContainsData(){

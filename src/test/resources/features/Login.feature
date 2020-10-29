@@ -25,7 +25,7 @@ Feature: Login
 
   #Data driven test is implemented. Added on 29th October 2020.
   #Instead of the above scenarios the following DDT scenario can be used.
-  @wip
+
   Scenario Outline: User shouldn't be able to login with wrong  credentials <username>
     When the user enters "<username>" and "<password>"
     Then Error message "<message>" should be displayed
