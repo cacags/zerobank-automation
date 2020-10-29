@@ -23,19 +23,19 @@ Feature: Find Transactions in Account Activity
     When the user enters description "OFFICE"
     And clicks search
     Then results table should only show descriptions containing "OFFICE"
-    But results table should not show descriptions containing "ONLINE"
+    But results table should not show descriptions containing "OFFICE"
 
-  @wip
+
   Scenario: Search description case insensitive
     When the user enters description "ONLINE"
     And clicks search
     Then results table should only show descriptions containing "ONLINE"
-    When the user enters description "online"
+    When the user enters description "ONLINE"
     And clicks search
     #In the following step there is a bug
     Then results table should only show descriptions containing "ONLINE"
 
-  @wip
+
   Scenario: Type
     And clicks search
     Then results table should show at least one result under Deposit

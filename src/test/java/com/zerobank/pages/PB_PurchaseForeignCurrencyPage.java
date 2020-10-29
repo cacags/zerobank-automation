@@ -44,7 +44,7 @@ public class PB_PurchaseForeignCurrencyPage {
         options.forEach(element -> {
                 if(!element.getText().equals("Select One"))
                     optionText.add(element.getText());
-            }
+                }
         );
         return optionText;
     }

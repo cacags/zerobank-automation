@@ -72,8 +72,8 @@ public class FindTransactionsStepDefs {
 
     @Then("results table should not show descriptions containing {string}")
     public void results_table_should_not_show_descriptions_containing(String value) {
-        BrowserUtils.waitFor(3);
-        //new AA_FindTransactions().isDescriptionNotContain(value);
+        BrowserUtils.waitFor(5);
+        new AA_FindTransactions().isDescriptionNotContain(value);
     }
 
     @Then("results table should show at least one result under Deposit")
