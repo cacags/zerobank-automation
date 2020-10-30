@@ -1,3 +1,4 @@
+@purchaseForeignPolicy
 Feature: Purchase Foreign Currency
 
   Background:

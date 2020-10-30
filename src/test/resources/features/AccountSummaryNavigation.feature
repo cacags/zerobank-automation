@@ -1,3 +1,4 @@
+@accountSummaryNavigation
 Feature: Navigating to specific accounts in Accounts Activity
 
   Background:
