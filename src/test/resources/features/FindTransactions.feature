@@ -30,7 +30,7 @@ Feature: Find Transactions in Account Activity
     When the user enters description "ONLINE"
     And clicks search
     Then results table should only show descriptions containing "ONLINE"
-    When the user enters description "ONLINE"
+    When the user enters description "online"
     And clicks search
     #In the following step there is a bug
     Then results table should only show descriptions containing "ONLINE"
