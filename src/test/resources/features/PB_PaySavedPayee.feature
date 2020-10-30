@@ -1,4 +1,4 @@
-@paySavedPayee
+@paySavedPayee @test
 Feature: Pay Bills
 
   Background:

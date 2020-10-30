@@ -1,4 +1,4 @@
-@purchaseForeignPolicy
+@purchaseForeignPolicy @test
 Feature: Purchase Foreign Currency
 
   Background:

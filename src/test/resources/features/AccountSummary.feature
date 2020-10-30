@@ -1,4 +1,4 @@
-@accountSummary
+@accountSummary @test
 Feature: Account Summary
 
   Scenario: Account Summary title and account types

@@ -1,4 +1,4 @@
-@accountActivity
+@accountActivity @test
 Feature: Account Activity
 
   Scenario: Account activity page title and dropdown box
