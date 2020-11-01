@@ -24,7 +24,7 @@ public class LoginStepDefs {
 
     @Then("Error message {string} should be displayed")
     public void error_message_should_be_displayed(String message) {
-        BrowserUtils.waitFor(3);
+        BrowserUtils.waitFor(8);
         Assert.assertTrue(new LoginPage().errorMessage.getText().equals(message));
     }
 
