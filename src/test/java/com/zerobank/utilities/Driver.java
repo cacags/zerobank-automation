@@ -1,6 +1,5 @@
 package com.zerobank.utilities;
 
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
@@ -26,11 +25,11 @@ public class Driver {
             String browser = ConfigurationReader.get("browser");
             switch (browser) {
                 case "chrome":
-                    WebDriverManager.chromedriver().setup();
+                    System.setProperty("webdriver.chrome.driver", "/usr/bin/google-chrome");
                     driver = new ChromeDriver();
                     break;
                 case "chrome-headless":
-                    WebDriverManager.chromedriver().setup();
+                    System.setProperty("webdriver.chrome.driver", "/usr/bin/google-chrome");
                     driver = new ChromeDriver(new ChromeOptions().setHeadless(true));
                     break;
                 case "firefox":
