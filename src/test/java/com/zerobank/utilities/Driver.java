@@ -26,10 +26,12 @@ public class Driver {
             switch (browser) {
                 case "chrome":
                     System.setProperty("webdriver.chrome.driver", "/usr/bin/google-chrome");
+                    WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
                     break;
                 case "chrome-headless":
                     System.setProperty("webdriver.chrome.driver", "/usr/bin/google-chrome");
+                    WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver(new ChromeOptions().setHeadless(true));
                     break;
                 case "firefox":
